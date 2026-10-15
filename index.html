@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. MOBILE RESPONSIVE TAG: Tells phones to scale the website properly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Space!!!</title>
+		 <style>
+        body {
+            /* 2. CUSTOM BACKGROUND IMAGE (Falls back to pastel blue if image fails) */
+            background-image: linear-gradient(rgba(224, 242, 254, 0.8), rgba(224, 242, 254, 0.8)), url('photo2.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+		 /* 3. THE HEADER IMAGE (Hero Banner) */
+        .header-banner {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Crops the image nicely across any device width */
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+		 /* 4. DROP-DOWN NAVIGATION MENU STYLING */
+        .navbar {
+            background-color: #1e3a8a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #1e293b;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f5f9;
+            color: #2563eb;
+        }
+
+        /* Shows the menu items when you hover your mouse over the button */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+		  </style>
+</head>
+<body>
+
+    <!-- DROP-DOWN NAVIGATION BAR -->
+    <div class="navbar">
+        <div class="logo">Funzy Waves 🚀</div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Menu ☰</button>
+            <div class="dropdown-content">
+              <a href="index.html">🏠 Home</a>
+			  <a href="crochet.html"> 🧶 Crochet App</a>
+              <a href="recipe_solver.html">🥞 Recipe App</a>
+              <a href="gardening.html">🌱 Gardening App</a>
+              <a href="travel.html">✈️ Travel Tracker</a>
+              <a href="contact.html">✉️ Contact Page</a>
+			  <a href="about.html">ℹ️  About Page</a>
+            </div>
+        </div>
+    </div>
+ <img src="banner.jpg" alt="Header Banner" class="header-banner">
+
+    <div class="main-container">
+        <h1>Welcome to the joy ride 👋</h1>
+        <p>Lets have Fun!!!!</p>
+
+        <!-- GALLERIES  -->
+        <div class="image-gallery">
+            <img src="photo3.jpg" alt="First Pic" width="300">
+           <!-- <img src="photo2.jpg" alt="Second Pic" width="300"> -->
+        </div>
+
+        <h3>Hobby Exploration:</h3>
+        <p>  🧶   Crochet</p>
+		<p>  🥞   Recipe</p>
+		<p>  🌱   Gardening</p>
+		<p>  ✈️   Travel</p>
+		<p>  ✉️   Contact</p>
+
+       
+    </div>
+	</body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Oasis Tracker</title>
+    <style>
+        body {
+            background-color: #f0fdf4; /* Fresh garden green background */
+            font-family: 'Segoe UI', sans-serif;
+            color: #14532d; /* Forest green text */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(20, 83, 45, 0.08);
+        }
+
+        .plant-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #bbf7d0;
+        }
+
+        .plant-info { text-align: left; }
+        .plant-name { font-weight: bold; font-size: 1.1rem; }
+        
+        .status-badge {
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        /* Interactive status colors */
+        .thirsty { background-color: #fef2f2; color: #991b1b; }
+        .watered { background-color: #dcfce7; color: #166534; }
+
+        .water-btn {
+            background-color: #16a34a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .water-btn:hover { background-color: #15803d; }
+    </style>
+</head>
+<body>
+
+    <p><a href="index.html" style="color: #16a34a;">← Back to Home</a></p>
+
+    <div class="dashboard">
+        <h2>🌱 My Garden Dashboard</h2>
+        <p>Keep track of your plants' watering schedules.</p>
+
+        <!-- Plant 1 -->
+        <div class="plant-row">
+            <div class="plant-info">
+                <div class="plant-name">Cherry Tomatoes 🍅</div>
+                <span class="status-badge thirsty" id="status-tomato">Thirsty</span>
+            </div>
+            <button class="water-btn" id="btn-tomato" onclick="waterPlant('tomato')">Give Water</button>
+        </div>
+
+        <!-- Plant 2 -->
+        <div class="plant-row">
+            <div class="plant-info">
+                <div class="plant-name">Sweet Basil 🌿</div>
+                <span class="status-badge thirsty" id="status-basil">Thirsty</span>
+            </div>
+            <button class="water-btn" id="btn-basil" onclick="waterPlant('basil')">Give Water</button>
+        </div>
+
+        <!-- Plant 3 -->
+        <div class="plant-row">
+            <div class="plant-info">
+                <div class="plant-name">Aloe Vera 🪴</div>
+                <span class="status-badge thirsty" id="status-aloe">Thirsty</span>
+            </div>
+            <button class="water-btn" id="btn-aloe" onclick="waterPlant('aloe')">Give Water</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        function waterPlant(plantId) {
+            // Find the correct status text and button on the screen
+            let statusBadge = document.getElementById('status-' + plantId);
+            let button = document.getElementById('btn-' + plantId);
+
+            // Change the status text and visual design classes dynamically
+            statusBadge.innerText = "Watered! ✨";
+            statusBadge.className = "status-badge watered";
+            
+            // Turn off the button so you can't double-water it by accident
+            button.innerText = "Done";
+            button.style.backgroundColor = "#94a3b8";
+            button.disabled = true;
+        }
+    </script>
+
+</body>
+</html>

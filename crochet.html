@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Crochet Companion</title>
+    <style>
+        body {
+            background-color: #fdf4e3; /* Warm, cozy yarn-like beige background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #451a03; /* Deep warm brown text */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .app-container {
+            background-color: white;
+            max-width: 450px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(69, 26, 3, 0.1);
+            border: 3px dashed #b45309; /* Cute dashed border */
+        }
+
+        h1 { color: #b45309; margin-top: 0; }
+
+        .counter-display {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #b45309;
+            margin: 20px 0;
+        }
+
+        .btn {
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.1s;
+        }
+
+        .btn:active { transform: scale(0.95); }
+
+        .btn-add { background-color: #d97706; color: white; width: 80%; }
+        .btn-minus { background-color: #fcd34d; color: #451a03; }
+        .btn-reset { background-color: #ef4444; color: white; }
+        
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #d97706;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+     <p style="text-align: center;"><a href="index.html" style="color: #0284c7;">← Back to Home</a></p>
+    <div class="app-container">
+        <h1>🧶 Crochet Tracker</h1>
+        <p>For absolute beginners. Track your rows seamlessly!</p>
+        
+        <!-- Input box to name the project -->
+        <input type="text" placeholder="My First Scarf..." id="projectInput">
+        
+        <!-- The live number that will change -->
+        <div class="counter-display" id="rowCount">0</div>
+        
+        <!-- Interactive Buttons -->
+        <button class="btn btn-add" onclick="changeRow(1)">+ Count Row</button> <br>
+        <button class="btn btn-minus" onclick="changeRow(-1)">- Oops, Go Back</button>
+        <button class="btn btn-reset" onclick="resetCounter()">Reset</button>
+    </div>
+
+    <!-- 💡 THE JAVASCRIPT ENGINE (This adds the functionality!) -->
+    <script>
+        // Start our count at zero
+        let currentRows = 0;
+
+        // Function to increase or decrease the row count
+        function changeRow(amount) {
+            currentRows = currentRows + amount;
+            
+            // Prevent the counter from going below 0
+            if (currentRows < 0) {
+                currentRows = 0;
+            }
+            
+            // Update the screen instantly with the new number
+            document.getElementById('rowCount').innerText = currentRows;
+        }
+
+        // Function to clear everything back to zero
+        function resetCounter() {
+            if (confirm("Are you sure you want to start over?")) {
+                currentRows = 0;
+                document.getElementById('rowCount').innerText = currentRows;
+                document.getElementById('projectInput').value = ""; // Clears project name
+            }
+        }
+    </script>
+
+</body>
+</html>

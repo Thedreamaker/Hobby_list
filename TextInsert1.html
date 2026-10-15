@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Using createElement</h2>
+  <!-- 1. Create an empty container with a unique ID -->
+  <div id="dynamic-container"></div>
+
+  <script>
+    // 2. Locate the container
+    const parentContainer = document.getElementById("dynamic-container");
+
+    // 3. Create the element objects structurally
+    const newHeading = document.createElement("h3");
+    const newParagraph = document.createElement("p");
+
+    // 4. Safely set text content (automatically sanitizes the input)
+    newHeading.textContent = "Hello from createElement!";
+    newParagraph.textContent = "This builds a formal DOM node object and attaches it seamlessly.";
+
+    // 5. Inject the elements into the container
+    parentContainer.appendChild(newHeading);
+    parentContainer.appendChild(newParagraph);
+  </script>
+</body>
+</html>

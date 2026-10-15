@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+	 <style>
+        body {
+            background-color: #e0f2fe; /* A nice, soft pastel blue background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner modern font */
+            color: #1e293b; /* A dark charcoal color for better reading */
+            padding: 20px;
+			text-align: center;
+        }
+          /* Formatting the container for the form */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Making form fields stack nicely and look pretty */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box; /* Ensures padding doesn't break the layout width */
+        }
+
+        .submit-btn {
+            background-color: #10b981; /* Emerald Green */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #059669;
+        } 
+         /* 5. MOBILE RESPONSIVE TWEAKS (For screen sizes under 600px wide) */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .header-banner { height: 150px; }
+            .image-gallery { flex-direction: column; align-items: center; }
+    </style>
+</head>
+<body>
+
+    <!-- This is the Navigation Bar to jump between pages -->
+    <nav>
+	    <a href="index.html">Home</a> |
+        <a href="about.html">Go to About Page</a> | 
+        <strong>Contact Page</strong>
+    </nav>
+
+    <hr>
+
+    <h1>Author Details</h1>
+	<img src="contact_pic.jpg" alt="Welcoming Pic" width="400" style="border-radius: 12px; margin: 15px 0;">
+
+    <p>Hi there! Thanks for visiting my website. Here is how you can reach out to me:</p>
+    
+    <ul>
+        <li><strong>Email:</strong> samplemail@example.com</li>
+        <li><strong>GitHub:</strong> sample@myusername</li>
+    </ul>
+	 <div class="form-container">
+        <h2>Send Me a Message! ✉️</h2>
+        
+        <!-- A functional web form -->
+		<form onsubmit="alert('Message Sent! Thank you.'); this.reset(); return false;">
+        <!--<form onsubmit="alert('Message Sent! Thank you.'); return false;"> -->
+            
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="John Doe" required>
+
+            <label for="email">Your Email Address:</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" rows="5" placeholder="Type your text here..." required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

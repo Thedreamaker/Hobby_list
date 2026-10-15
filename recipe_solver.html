@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe Scaler</title>
+    <style>
+        body {
+            background-color: #fff7ed; /* Soft, warm kitchen cream color */
+            font-family: 'Segoe UI', sans-serif;
+            color: #431407; /* Deep roasted coffee brown text */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .recipe-card {
+            background-color: white;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(67, 20, 7, 0.08);
+            border-top: 8px solid #ea580c; /* Bright culinary orange header strip */
+        }
+
+        .portions-control {
+            background-color: #ffedd5;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ea580c;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover { background-color: #c2410c; }
+        
+        .servings-number {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #fed7aa;
+            font-size: 1.1rem;
+        }
+
+        .span-qty {
+            font-weight: bold;
+            color: #ea580c;
+        }
+    </style>
+</head>
+<body>
+     <p style="text-align: center;"><a href="index.html" style="color: #0284c7;">← Back to Home</a></p>
+    <div class="recipe-card">
+        <h2>🥞 Fluffy Pancakes Recipe</h2>
+        <p>Adjust servings to automatically scale the ingredients!</p>
+
+        <!-- Servings Controller -->
+        <div class="portions-control">
+            <button class="btn" onclick="scaleRecipe(-1)">-</button>
+            <span class="servings-number" id="servingDisplay">2</span> servings
+            <button class="btn" onclick="scaleRecipe(1)">+</button>
+        </div>
+
+        <!-- Ingredients List -->
+        <h3>Ingredients Needs:</h3>
+        <ul>
+            <li><span class="span-qty" id="flourQty">100</span>g Flour</li>
+            <li><span class="span-qty" id="milkQty">150</span>ml Milk</li>
+            <li><span class="span-qty" id="eggQty">1</span> Large Egg</li>
+            <li><span class="span-qty" id="sugarQty">1</span> tbsp Sugar</li>
+        </ul>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        // Baseline amounts for exactly 2 servings
+        const baseServings = 2;
+        const baseFlour = 100;
+        const baseMilk = 150;
+        const baseEgg = 1;
+        const baseSugar = 1;
+
+        // Active state tracker
+        let currentServings = 2;
+
+        function scaleRecipe(change) {
+            currentServings += change;
+
+            // Make sure they can't scale down below 1 serving
+            if (currentServings < 1) {
+                currentServings = 1;
+            }
+
+            // Math equation to calculate scaling multiplier
+            let factor = currentServings / baseServings;
+
+            // Update values on the screen dynamically
+            document.getElementById('servingDisplay').innerText = currentServings;
+            document.getElementById('flourQty').innerText = Math.round(baseFlour * factor);
+            document.getElementById('milkQty').innerText = Math.round(baseMilk * factor);
+            
+            // For eggs and sugar, we allow decimals (like 1.5 eggs) for precise accuracy
+            document.getElementById('eggQty').innerText = (baseEgg * factor).toFixed(1).replace('.0', '');
+            document.getElementById('sugarQty').innerText = (baseSugar * factor).toFixed(1).replace('.0', '');
+        }
+    </script>
+
+</body>
+</html>

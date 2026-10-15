@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Packing Checklist</title>
+    <style>
+        body {
+            background-color: #f8fafc; /* Clean slate-gray travel background */
+            font-family: 'Segoe UI', sans-serif;
+            color: #1e293b;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .checklist-card {
+            background-color: white;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        h2 { color: #0284c7; text-align: center; margin-top: 0; }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* The trick to crossing out text using CSS */
+        .packed {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <p style="text-align: center;"><a href="index.html" style="color: #0284c7;">← Back to Home</a></p>
+
+    <div class="checklist-card">
+        <h2>✈️ Smart Packing List</h2>
+        <p style="text-align: center; color: #64748b;">Click on any item to pack it away!</p>
+
+        <div class="checkbox-item" onclick="toggleItem(this)">
+            🪪 <span>Passport & Tickets</span>
+        </div>
+        
+        <div class="checkbox-item" onclick="toggleItem(this)">
+            🔌 <span>Phone & Laptop Charger</span>
+        </div>
+
+        <div class="checkbox-item" onclick="toggleItem(this)">
+            🪥 <span>Toothbrush & Toiletries</span>
+        </div>
+
+        <div class="checkbox-item" onclick="toggleItem(this)">
+            👟 <span>Comfortable Walking Shoes</span>
+        </div>
+
+        <div class="checkbox-item" onclick="toggleItem(this)">
+            🕶️ <span>Sunglasses & Sunscreen</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        function toggleItem(element) {
+            // 'element' is the exact item row the user clicked on.
+            // This line toggles the 'packed' text-decoration layout style on and off.
+            element.classList.toggle('packed');
+        }
+    </script>
+
+</body>
+</html>
