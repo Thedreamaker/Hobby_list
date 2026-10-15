@@ -80,8 +80,11 @@
 
     <!-- 💡 THE JAVASCRIPT ENGINE (This adds the functionality!) -->
     <script>
-        // Start our count at zero
-        let currentRows = 0;
+        let savedRows = localStorage.getItem("myStoredRows");
+    
+    // If something was saved before, use it! Otherwise, start at 0.
+    let currentRows = savedRows ? parseInt(savedRows) : 0;
+
 
         // Function to increase or decrease the row count
         function changeRow(amount) {
