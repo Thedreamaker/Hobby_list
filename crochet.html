@@ -94,6 +94,7 @@
             
             // Update the screen instantly with the new number
             document.getElementById('rowCount').innerText = currentRows;
+            localStorage.setItem("myStoredRows", currentRows);
         }
 
         // Function to clear everything back to zero
@@ -102,6 +103,7 @@
                 currentRows = 0;
                 document.getElementById('rowCount').innerText = currentRows;
                 document.getElementById('projectInput').value = ""; // Clears project name
+                localStorage.removeItem("myStoredRows");
             }
         }
     </script>
