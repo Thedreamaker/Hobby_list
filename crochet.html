@@ -85,7 +85,7 @@
     // If something was saved before, use it! Otherwise, start at 0.
     let currentRows = savedRows ? parseInt(savedRows) : 0;
 
-
+document.getElementById('rowCount').innerText = currentRows;
         // Function to increase or decrease the row count
         function changeRow(amount) {
             currentRows = currentRows + amount;
