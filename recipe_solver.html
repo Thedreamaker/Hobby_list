@@ -94,6 +94,9 @@
             <li><span class="span-qty" id="sugarQty">1</span> tbsp Sugar</li>
         </ul>
     </div>
+<button id="share-btn" style="padding: 10px 20px; font-size: 16px; user-select: none;">
+  🔗 Share this Page
+</button>
 
     <!-- JAVASCRIPT ENGINE -->
     <script>
@@ -127,6 +130,28 @@
             document.getElementById('eggQty').innerText = (baseEgg * factor).toFixed(1).replace('.0', '');
             document.getElementById('sugarQty').innerText = (baseSugar * factor).toFixed(1).replace('.0', '');
         }
+
+         document.getElementById('share-btn').addEventListener('click', async () => {
+    // 1. Make the phone vibrate for 50 milliseconds (haptic buzz)
+    if ('vibrate' in navigator) {
+      navigator.vibrate(50); 
+    }
+
+    // 2. Trigger the phone's native sharing screen
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Hobby Space Recipes',
+          text: 'Check out this awesome recipe app layout!',
+          url: window.location.href // Grabs your live GitHub link automatically
+        });
+      } catch (err) {
+        console.log('Share canceled or failed:', err);
+      }
+    } else {
+      alert("Sharing isn't supported on this specific desktop browser, but it works on mobile!");
+    }
+  });
     </script>
 
 </body>
